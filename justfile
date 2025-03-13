@@ -1,23 +1,22 @@
 # Define directory paths
 NETS_DIR := "data/nets"
 TMP_DIR := "data/tmp"
+SCRIPTS_DIR := "scripts"
+
 
 # Define script paths
-PFLOW_TO_JSON_SCRIPT := "scripts/pflow_to_json.py"
-JSON_TRANSFORM_SCRIPT := "scripts/json_parser.py"
+PNML_TO_JSON_SCRIPT := "scripts/pnml_to_json.py"
 
-# Convert a .pflow file to a JSON file
-pflow_to_json name:
-    python3 {{PFLOW_TO_JSON_SCRIPT}} {{NETS_DIR}}/{{name}}.pflow {{TMP_DIR}}/{{name}}.json
+get_tree name:
+    {{SCRIPTS_DIR}}/tina {{NETS_DIR}}/{{name}}.pnml > {{TMP_DIR}}/tina_out_{{name}}.txt
 
-# Transform the JSON file to a new schema (overwriting the same file)
-transform_json name:
-    python3 {{JSON_TRANSFORM_SCRIPT}} {{TMP_DIR}}/{{name}}.json
+get_tree_graph name:
+    python {{SCRIPTS_DIR}}/tina_to_dot_graph.py \
+        {{TMP_DIR}}/tina_out_{{name}}.txt {{TMP_DIR}}/tina_graph_{{name}}.dot
 
-# Full process: Convert PFlow to JSON and then transform the JSON
-process name:
-    just pflow_to_json {{name}}
-    just transform_json {{name}}
+tina_process name:
+    just get_tree {{name}}
+    just get_tree_graph {{name}}
 
 # Cleanup all temporary JSON files
 clean_tmp:
