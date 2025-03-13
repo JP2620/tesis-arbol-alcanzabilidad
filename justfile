@@ -3,12 +3,23 @@ NETS_DIR := "data/nets"
 TMP_DIR := "data/tmp"
 
 # Define script paths
-TRANSLATE_SCRIPT := "scripts/pflow_to_json.py"
+PFLOW_TO_JSON_SCRIPT := "scripts/pflow_to_json.py"
+JSON_TRANSFORM_SCRIPT := "scripts/json_parser.py"
 
-# Recipe to translate a .pflow file to .json
-translate name:
-    python3 {{TRANSLATE_SCRIPT}} {{NETS_DIR}}/{{name}}.pflow {{TMP_DIR}}/{{name}}.json
+# Convert a .pflow file to a JSON file
+pflow_to_json name:
+    python3 {{PFLOW_TO_JSON_SCRIPT}} {{NETS_DIR}}/{{name}}.pflow {{TMP_DIR}}/{{name}}.json
 
-clear:
-  rm {{TMP_DIR}}/*
+# Transform the JSON file to a new schema (overwriting the same file)
+transform_json name:
+    python3 {{JSON_TRANSFORM_SCRIPT}} {{TMP_DIR}}/{{name}}.json
+
+# Full process: Convert PFlow to JSON and then transform the JSON
+process name:
+    just pflow_to_json {{name}}
+    just transform_json {{name}}
+
+# Cleanup all temporary JSON files
+clean_tmp:
+    rm -f {{TMP_DIR}}/*
 
