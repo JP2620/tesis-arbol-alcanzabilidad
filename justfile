@@ -3,22 +3,22 @@ NETS_DIR := "data/nets"
 TMP_DIR := "data/tmp"
 SCRIPTS_DIR := "scripts"
 
-
-# Define script paths
-PNML_TO_JSON_SCRIPT := "scripts/pnml_to_json.py"
-
 get_tree name:
-    {{SCRIPTS_DIR}}/tina {{NETS_DIR}}/{{name}}.pnml > {{TMP_DIR}}/tina_out_{{name}}.txt
+	{{SCRIPTS_DIR}}/tina {{NETS_DIR}}/{{name}}.pnml > {{TMP_DIR}}/tina_out_{{name}}.txt
 
 get_tree_graph name:
-    python {{SCRIPTS_DIR}}/tina_to_dot_graph.py \
-        {{TMP_DIR}}/tina_out_{{name}}.txt {{TMP_DIR}}/tina_graph_{{name}}.dot
+	python {{SCRIPTS_DIR}}/tina_to_dot_graph.py \
+	    {{TMP_DIR}}/tina_out_{{name}}.txt {{TMP_DIR}}/tina_graph_{{name}}.dot
+
+dot_to_svg name:
+	python {{SCRIPTS_DIR}}/dot_to_svg.py \
+	    {{TMP_DIR}}/tina_graph_{{name}}.dot {{TMP_DIR}}/tina_graph_{{name}}.svg
 
 tina_process name:
-    just get_tree {{name}}
-    just get_tree_graph {{name}}
+	just get_tree {{name}}
+	just get_tree_graph {{name}}
+	just dot_to_svg {{name}}
 
-# Cleanup all temporary JSON files
+# Cleanup all temporary files
 clean_tmp:
-    rm -f {{TMP_DIR}}/*
-
+	rm -f {{TMP_DIR}}/*
