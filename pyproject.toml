@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "tesis-arbol-alcanzabilidad"
+version = "0.1.0"
+description = ""
+authors = ["juan pablo saucedo <juanpablo.saucedo@muttdata.ai>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+xmltodict = "^0.14.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
