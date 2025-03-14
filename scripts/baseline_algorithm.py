@@ -68,10 +68,10 @@ def execute_petri_net(incidence_positiva, incidence_negativa, marcado_inicial):
                     visited[nuevo_estado] = nombre_estado
                     contador_estados += 1
                     queue.append(nuevo_estado)
+                    # Registrar la transición disparada
+                    edges.append((visited[actual], nombre_estado, f"t{t}"))
                 else:
                     nombre_estado = visited[nuevo_estado]
-                # Registrar la transición disparada
-                edges.append((visited[actual], nombre_estado, f"t{t}"))
     
     return visited, edges
 
