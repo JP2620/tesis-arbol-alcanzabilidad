@@ -12,7 +12,7 @@
                     <text>1</text>
                 </initialMarking>
                 <graphics>
-                    <position x="87" y="29"/>
+                    <position x="150" y="16"/>
                 </graphics>
             </place>
             <place id="P2">
@@ -26,7 +26,7 @@
                     <text>0</text>
                 </initialMarking>
                 <graphics>
-                    <position x="87" y="178"/>
+                    <position x="152" y="153"/>
                 </graphics>
             </place>
             <place id="P3">
@@ -40,7 +40,7 @@
                     <text>0</text>
                 </initialMarking>
                 <graphics>
-                    <position x="95" y="364"/>
+                    <position x="155" y="322"/>
                 </graphics>
             </place>
             <place id="P4">
@@ -51,10 +51,10 @@
                     </graphics>
                 </name>
                 <initialMarking>
-                    <text>1</text>
+                    <text>2</text>
                 </initialMarking>
                 <graphics>
-                    <position x="248" y="194"/>
+                    <position x="295" y="154"/>
                 </graphics>
             </place>
             <place id="P5">
@@ -68,7 +68,7 @@
                     <text>1</text>
                 </initialMarking>
                 <graphics>
-                    <position x="367" y="16"/>
+                    <position x="394" y="23"/>
                 </graphics>
             </place>
             <place id="P6">
@@ -82,7 +82,7 @@
                     <text>0</text>
                 </initialMarking>
                 <graphics>
-                    <position x="368" y="137"/>
+                    <position x="398" y="166"/>
                 </graphics>
             </place>
             <place id="P7">
@@ -96,7 +96,7 @@
                     <text>0</text>
                 </initialMarking>
                 <graphics>
-                    <position x="380" y="338"/>
+                    <position x="394" y="325"/>
                 </graphics>
             </place>
             <transition id="T1">
@@ -113,7 +113,7 @@
                     </graphics>
                 </name>
                 <graphics>
-                    <position x="83" y="109"/>
+                    <position x="149" y="94"/>
                 </graphics>
             </transition>
             <transition id="T2">
@@ -130,7 +130,7 @@
                     </graphics>
                 </name>
                 <graphics>
-                    <position x="80" y="296"/>
+                    <position x="153" y="255"/>
                 </graphics>
             </transition>
             <transition id="T3">
@@ -147,7 +147,7 @@
                     </graphics>
                 </name>
                 <graphics>
-                    <position x="367" y="86"/>
+                    <position x="16" y="169"/>
                 </graphics>
             </transition>
             <transition id="T4">
@@ -164,7 +164,7 @@
                     </graphics>
                 </name>
                 <graphics>
-                    <position x="373" y="258"/>
+                    <position x="397" y="92"/>
                 </graphics>
             </transition>
             <transition id="T5">
@@ -181,7 +181,7 @@
                     </graphics>
                 </name>
                 <graphics>
-                    <position x="16" y="192"/>
+                    <position x="389" y="261"/>
                 </graphics>
             </transition>
             <transition id="T6">
@@ -198,10 +198,10 @@
                     </graphics>
                 </name>
                 <graphics>
-                    <position x="518" y="196"/>
+                    <position x="544" y="182"/>
                 </graphics>
             </transition>
-            <arc id="AT4P4" source="T4" target="P4">
+            <arc id="A" source="T5" target="P4">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -210,7 +210,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT2P4" source="T2" target="P4">
+            <arc id="A" source="P4" target="T4">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -219,7 +219,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP4T3" source="P4" target="T3">
+            <arc id="A" source="T2" target="P4">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -228,7 +228,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP4T1" source="P4" target="T1">
+            <arc id="A" source="P4" target="T1">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -237,7 +237,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT6P5" source="T6" target="P5">
+            <arc id="A" source="T6" target="P5">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -246,7 +246,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP7T6" source="P7" target="T6">
+            <arc id="A" source="P7" target="T6">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -255,7 +255,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT4P7" source="T4" target="P7">
+            <arc id="A" source="T5" target="P7">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -264,7 +264,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP6T4" source="P6" target="T4">
+            <arc id="A" source="P6" target="T5">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -273,7 +273,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT3P6" source="T3" target="P6">
+            <arc id="A" source="T4" target="P6">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -282,7 +282,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP5T3" source="P5" target="T3">
+            <arc id="A" source="P5" target="T4">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -291,7 +291,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT5P1" source="T5" target="P1">
+            <arc id="A" source="T3" target="P1">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -300,7 +300,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP3T5" source="P3" target="T5">
+            <arc id="A" source="P3" target="T3">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -309,7 +309,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT2P3" source="T2" target="P3">
+            <arc id="A" source="T2" target="P3">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -318,7 +318,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP2T2" source="P2" target="T2">
+            <arc id="A" source="P2" target="T2">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -327,7 +327,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AT1P2" source="T1" target="P2">
+            <arc id="A" source="T1" target="P2">
                 <inscription>
                     <text>1</text>
                     <graphics>
@@ -336,7 +336,7 @@
                 </inscription>
                 <type value="regular"/>
             </arc>
-            <arc id="AP1T1" source="P1" target="T1">
+            <arc id="A" source="P1" target="T1">
                 <inscription>
                     <text>1</text>
                     <graphics>

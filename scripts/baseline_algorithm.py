@@ -94,7 +94,7 @@ def write_dot(visited, edges, output_file):
 def main():
     import sys
     if len(sys.argv) != 3:
-        print("Uso: python petri_net.py entrada.json")
+        print("Uso: python baseline_algorithm entrada.json salida.dot")
         sys.exit(1)
     
     input_file = sys.argv[1]
@@ -102,7 +102,7 @@ def main():
     incidence_positiva, incidence_negativa, marcado_inicial = parse_input(input_file)
     visited, edges = execute_petri_net(incidence_positiva, incidence_negativa, marcado_inicial)
     write_dot(visited, edges, output_path)
-    print("Archivo DOT generado: petri_net.dot")
+    print(f"Archivo DOT generado: {output_path}")
 
 if __name__ == '__main__':
     main()

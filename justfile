@@ -53,10 +53,17 @@ our_process name:
 	just our_dot_to_svg {{name}}
 
 # -------------------------------------------------------------------
+# Composite Task: Run both pipelines and compare the resulting DOT files.
+# -------------------------------------------------------------------
+compare_pipelines name:
+	just tina_process {{name}}
+	just our_process {{name}}
+	python {{SCRIPTS_DIR}}/compare_dot.py {{TMP_DIR}}/tina_graph_{{name}}.dot {{TMP_DIR}}/our_graph_{{name}}.dot
+
+# -------------------------------------------------------------------
 # Utility: Clean Up Temporary Files
 # -------------------------------------------------------------------
 
 # Remove all files in the temporary directory.
 clean_tmp:
 	rm -f {{TMP_DIR}}/*
-
