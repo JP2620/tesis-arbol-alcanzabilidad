@@ -1,0 +1,26 @@
+{
+    "incidence_positiva": [
+        [
+            0,
+            1
+        ],
+        [
+            2,
+            0
+        ]
+    ],
+    "incidence_negativa": [
+        [
+            1,
+            0
+        ],
+        [
+            0,
+            1
+        ]
+    ],
+    "marcado_inicial": [
+        1,
+        0
+    ]
+}

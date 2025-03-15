@@ -4,6 +4,7 @@
 NETS_DIR := "data/nets"
 TMP_DIR := "data/tmp"
 SCRIPTS_DIR := "scripts"
+TESTS_DIR := "src/test"
 
 # -------------------------------------------------------------------
 # TINA Pipeline: Ground Truth Reachability Tree Generation
@@ -59,6 +60,13 @@ compare_pipelines name:
 	just tina_process {{name}}
 	just our_process {{name}}
 	python {{SCRIPTS_DIR}}/compare_dot.py {{TMP_DIR}}/tina_graph_{{name}}.dot {{TMP_DIR}}/our_graph_{{name}}.dot
+
+# -------------------------------------------------------------------
+# Test: Run tests in TESTS_DIR
+# -------------------------------------------------------------------
+test:
+	pytest
+
 
 # -------------------------------------------------------------------
 # Utility: Clean Up Temporary Files

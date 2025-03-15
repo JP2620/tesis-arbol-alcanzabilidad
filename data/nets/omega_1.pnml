@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><pnml>
+    <net id="n-2238-D385B-0" type="Petrinator TinaDialect">
+        <page id="g-2A34-1546E-1">
+            <place id="P1">
+                <name>
+                    <text>P1</text>
+                    <graphics>
+                        <offset x="5" y="33"/>
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+                <graphics>
+                    <position x="16" y="123"/>
+                </graphics>
+            </place>
+            <place id="P2">
+                <name>
+                    <text>P2</text>
+                    <graphics>
+                        <offset x="5" y="33"/>
+                    </graphics>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+                <graphics>
+                    <position x="294" y="133"/>
+                </graphics>
+            </place>
+            <transition id="T1">
+                <label>
+                    <text>&lt;F,I,(!none)&gt;</text>
+                    <graphics>
+                        <offset x="-10" y="0"/>
+                    </graphics>
+                </label>
+                <name>
+                    <text>T1</text>
+                    <graphics>
+                        <offset x="4" y="31"/>
+                    </graphics>
+                </name>
+                <graphics>
+                    <position x="147" y="16"/>
+                </graphics>
+            </transition>
+            <transition id="T2">
+                <label>
+                    <text>&lt;F,I,(!none)&gt;</text>
+                    <graphics>
+                        <offset x="-10" y="0"/>
+                    </graphics>
+                </label>
+                <name>
+                    <text>T2</text>
+                    <graphics>
+                        <offset x="4" y="31"/>
+                    </graphics>
+                </name>
+                <graphics>
+                    <position x="141" y="267"/>
+                </graphics>
+            </transition>
+            <arc id="AT2P1" source="T2" target="P1">
+                <inscription>
+                    <text>1</text>
+                    <graphics>
+                        <offset x="4" y="-7"/>
+                    </graphics>
+                </inscription>
+                <type value="regular"/>
+            </arc>
+            <arc id="AP2T2" source="P2" target="T2">
+                <inscription>
+                    <text>1</text>
+                    <graphics>
+                        <offset x="4" y="-7"/>
+                    </graphics>
+                </inscription>
+                <type value="regular"/>
+            </arc>
+            <arc id="AT1P2" source="T1" target="P2">
+                <inscription>
+                    <text>2</text>
+                    <graphics>
+                        <offset x="4" y="-7"/>
+                    </graphics>
+                </inscription>
+                <type value="regular"/>
+            </arc>
+            <arc id="AP1T1" source="P1" target="T1">
+                <inscription>
+                    <text>1</text>
+                    <graphics>
+                        <offset x="4" y="-7"/>
+                    </graphics>
+                </inscription>
+                <type value="regular"/>
+            </arc>
+        </page>
+    </net>
+</pnml>
