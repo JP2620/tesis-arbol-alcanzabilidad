@@ -1,6 +1,5 @@
 import json
 import pytest
-import os
 from common.parsing.json_parser import parse_input
 
 # Sample JSON data

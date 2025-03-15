@@ -1,17 +1,9 @@
-import json
-from collections import deque
+import sys
+import os 
 
-def parse_input(file_path):
-    """
-    Lee el archivo JSON de entrada y extrae la matriz de incidencia positiva,
-    la matriz de incidencia negativa y el marcado inicial.
-    """
-    with open(file_path, 'r') as f:
-        data = json.load(f)
-    incidence_positiva = data["incidence_positiva"]
-    incidence_negativa = data["incidence_negativa"]
-    marcado_inicial = data["marcado_inicial"]
-    return incidence_positiva, incidence_negativa, marcado_inicial
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+from common.parsing.json_parser import parse_input
 
 def is_enabled(marcado, incidence_negativa, t):
     pass
