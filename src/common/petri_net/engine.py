@@ -1,7 +1,10 @@
 import numpy as np
 
 def fire_transition(marcado, incidence, vector_disparo):
-    return marcado + np.dot(incidence, vector_disparo)
+    nuevo_marcado = marcado + np.dot(incidence, vector_disparo)
+    # Restauramos las plazas no acotadas: donde el marcado original es -1 se mantiene -1.
+    nuevo_marcado[marcado == -1] = -1
+    return nuevo_marcado
 
 def get_enabled_transitions(incidencia_negativa: np.ndarray, marcado: np.ndarray) -> np.ndarray:
     """
@@ -22,9 +25,6 @@ def get_enabled_transitions(incidencia_negativa: np.ndarray, marcado: np.ndarray
       Para cada transición, si en una plaza el marcado es -1 se considera que cumple el requisito.
       Además, en el marcado final (en caso de que se actualice) las plazas con -1 se mantienen con -1.
     """
-    # Asegurarse de que marcado es un array numpy y ajustarlo para broadcasting.
-    marcado = np.array(marcado)
-    
     # Para cada plaza y transición se verifica:
     #    si la plaza es no acotada (marcado == -1) o si tiene tokens suficientes (marcado >= matriz_neg)
     cond = np.logical_or(marcado.reshape(-1, 1) == -1, marcado.reshape(-1, 1) >= incidencia_negativa)

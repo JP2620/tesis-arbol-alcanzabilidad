@@ -13,6 +13,13 @@ def test_fire_transition():
     result = fire_transition(marking, incidence, firing_vector)
     assert np.array_equal(result, np.array([0, 2]))
         
+def test_fire_transition_with_omega():
+    marking = np.array([0, -1])
+    incidence = np.array([[-1, 1], [2, -1]])
+    firing_vector = np.array([0, 1])
+
+    result = fire_transition(marking, incidence, firing_vector)
+    assert np.array_equal(result, np.array([1, -1]))
 
 def test_get_enabled_transitions_multiple():
 
