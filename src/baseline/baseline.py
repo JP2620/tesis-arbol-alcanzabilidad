@@ -29,7 +29,7 @@ def execute_petri_net(incidence_positiva, incidence_negativa, marcado_inicial):
     marcados_visitados_arr = np.array(marcado_inicial)
 
     firing_queue = deque()
-    firing_queue.append((marcado_inicial, [1, 0]))
+    firing_queue.append((marcado_inicial, get_enabled_transitions(incidence_negativa, marcado_inicial)))
 
     tree_nodes = []
     tree_edges = []
@@ -49,9 +49,6 @@ def execute_petri_net(incidence_positiva, incidence_negativa, marcado_inicial):
             nuevas_transiciones_enabled = get_enabled_transitions(incidence_negativa, nuevo_marcado)
             [firing_queue.append((nuevo_marcado, vector_disparo)) for vector_disparo in get_vectores_disparo_from_enabled_transitions(nuevas_transiciones_enabled)]
     tree_nodes = marcados_visitados
-
-    print(tree_nodes, tree_edges)
-
 
     return {
         "nodes": tree_nodes,
