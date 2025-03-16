@@ -58,9 +58,9 @@ def test_update_marking_with_omegas():
     assert np.array_equal(result, np.array([-1, -1]))
     
 def test_update_marking_without_omegas():
-    marking = np.array([1, 0])
+    marking = np.array([0, 1])
     visited_markings = np.array([[1, 0]])
 
     result = update_marking(marking, visited_markings)
 
-    assert np.array_equal(result, np.array([1, 0]))
+    assert np.array_equal(result, np.array([0, 1]))
