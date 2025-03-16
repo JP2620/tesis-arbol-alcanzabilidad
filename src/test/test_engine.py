@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from common.petri_net.engine import fire_transition
+from common.petri_net.engine import fire_transition, get_enabled_transitions
 
 
 
@@ -14,4 +14,31 @@ def test_fire_transition():
     assert np.array_equal(result, np.array([0, 2]))
         
 
+def test_get_enabled_transitions_multiple():
+
+    marking = np.array([1, 1])
+    negative_incidence = np.array([[1, 0], [0, 1]])
+
+    result = get_enabled_transitions(negative_incidence, marking)
+
+    assert np.array_equal(result, np.array([1, 1]))
+
+
+def test_get_enabled_transitions_single():
+
+    marking = np.array([1, 0])
+    negative_incidence = np.array([[1, 0], [0, 1]])
+
+    result = get_enabled_transitions(negative_incidence, marking)
+
+    assert np.array_equal(result, np.array([1, 0]))
+
+def test_get_enabled_transitions_omega():
+
+    marking = np.array([0, -1])
+    negative_incidence = np.array([[1, 0], [0, 1]])
+
+    result = get_enabled_transitions(negative_incidence, marking)
+
+    assert np.array_equal(result, np.array([0, 1]))
 
