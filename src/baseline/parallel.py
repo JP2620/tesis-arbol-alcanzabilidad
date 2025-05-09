@@ -1,5 +1,6 @@
 from typing import List, Tuple, Dict, Any
 import threading
+import time
 import queue
 import argparse
 import json
@@ -290,8 +291,13 @@ if __name__ == "__main__":
     I_minus = data["I_minus"]
     I_plus = data["I_plus"]
     subnet_definitions = data["subnet_definitions"]
-    
+
+    start_time = time.time()
     nodes = petri_reachability_tree(M0, I_minus, I_plus, subnet_definitions)
+    elapsed_time = time.time() - start_time
+
     dot_output = nodes_to_dot(nodes)
     print("\nGenerated DOT output:")
-    print(dot_output)
+    #print(dot_output)
+
+    print(f"Elapsed time: {elapsed_time:.4f} seconds")

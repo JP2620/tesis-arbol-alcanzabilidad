@@ -1,3 +1,4 @@
+import time
 import sys
 import os 
 
@@ -100,7 +101,12 @@ def main():
     output_path = sys.argv[2]
 
     incidence_positiva, incidence_negativa, marcado_inicial = parse_input(input_file)
+    
+    start_time = time.time()
     graph = execute_petri_net(incidence_positiva, incidence_negativa, marcado_inicial)
+    elapsed_time = time.time() - start_time
+    print(f"Elapsed time: {elapsed_time:.4f} seconds")
+
     write_to_dot(graph, output_path)
 
 if __name__ == '__main__':
